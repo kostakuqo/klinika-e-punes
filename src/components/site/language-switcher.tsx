@@ -5,9 +5,7 @@ import { useTransition } from "react";
 import { clsx } from "clsx";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/routing";
-
-const labels: Record<Locale, string> = { sq: "SQ", en: "EN", it: "IT" };
-const names: Record<Locale, string> = { sq: "Shqip", en: "English", it: "Italiano" };
+import { LanguageFlag, languageLabels, languageNames } from "./language-flag";
 
 export function LanguageSwitcher({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const t = useTranslations("nav");
@@ -23,7 +21,8 @@ export function LanguageSwitcher({ tone = "dark" }: { tone?: "dark" | "light" })
           key={locale}
           type="button"
           lang={locale}
-          title={names[locale]}
+          title={languageNames[locale]}
+          aria-label={languageNames[locale]}
           aria-current={locale === current ? "true" : undefined}
           disabled={pending}
           onClick={() =>
@@ -32,15 +31,16 @@ export function LanguageSwitcher({ tone = "dark" }: { tone?: "dark" | "light" })
             })
           }
           className={clsx(
-            "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
+            "flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
             locale === current
               ? "bg-amber text-navy-deep"
               : tone === "light"
-                ? "text-white/70 hover:text-white"
+                ? "text-white/75 hover:text-white"
                 : "text-steel hover:text-navy",
           )}
         >
-          {labels[locale]}
+          <LanguageFlag locale={locale} />
+          {languageLabels[locale]}
         </button>
       ))}
     </div>

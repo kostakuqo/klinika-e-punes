@@ -10,6 +10,7 @@ import { BrandMark } from "./brand-mark";
 import { LanguageSwitcher } from "./language-switcher";
 
 const navItems: { href: AppPathname; key: string }[] = [
+  { href: "/", key: "home" },
   { href: "/rreth-nesh", key: "about" },
   { href: "/detyrat", key: "services" },
   { href: "/mjeket", key: "doctors" },
@@ -26,6 +27,10 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // The active link is marked only in the browser: on translated URLs
+  // (/en/about) the server and the browser resolve the pathname differently.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -61,17 +66,17 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
             <BrandMark name={name} logoUrl={logoUrl} tone={light || open ? "light" : "dark"} />
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:block">
+          <nav aria-label="Main" className="hidden xl:block">
             <ul className="flex items-center gap-1">
               {navItems.map((item) => {
-                const active = pathname === item.href;
+                const active = mounted && pathname === item.href;
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
                       aria-current={active ? "page" : undefined}
                       className={clsx(
-                        "relative rounded-full px-3.5 py-2 text-[0.95rem] transition-colors",
+                        "relative rounded-full px-3.5 py-2 text-[0.95rem] whitespace-nowrap transition-colors",
                         light ? "text-white/80 hover:text-white" : "text-steel hover:text-navy",
                         active && (light ? "text-white" : "text-navy"),
                       )}
@@ -97,7 +102,7 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
             </div>
             <Link
               href="/rezervo"
-              className="hidden rounded-full bg-amber px-5 py-2.5 text-sm font-semibold text-navy-deep transition-transform duration-300 hover:-translate-y-0.5 md:inline-block"
+              className="hidden rounded-full bg-amber px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-navy-deep transition-transform duration-300 hover:-translate-y-0.5 md:inline-block"
             >
               {t("book")}
             </Link>
@@ -107,7 +112,7 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? t("close") : t("menu")}
-              className={clsx("grid size-11 place-items-center rounded-full lg:hidden", light || open ? "text-white" : "text-navy")}
+              className={clsx("grid size-11 place-items-center rounded-full xl:hidden", light || open ? "text-white" : "text-navy")}
             >
               <span className="relative block h-3 w-6">
                 <motion.span
@@ -128,7 +133,7 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 flex flex-col bg-navy-deep px-6 pt-28 pb-10 text-white lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-navy-deep px-6 pt-28 pb-10 text-white xl:hidden"
             initial={{ clipPath: "circle(0% at calc(100% - 44px) 36px)" }}
             animate={{ clipPath: "circle(150% at calc(100% - 44px) 36px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 44px) 36px)" }}
@@ -136,7 +141,7 @@ export function SiteHeader({ name, logoUrl, phone }: { name: string; logoUrl: st
           >
             <nav aria-label="Mobile">
               <ul className="space-y-1">
-                {[{ href: "/" as AppPathname, key: "home" }, ...navItems].map((item, i) => (
+                {navItems.map((item, i) => (
                   <motion.li
                     key={item.href}
                     initial={{ opacity: 0, y: 24 }}

@@ -1,4 +1,5 @@
 import { clsx } from "clsx";
+import { optimizedImageUrl } from "@/lib/cloudinary-image-url";
 
 /**
  * Built-in logo: a small 24h dial with the work-hours arc, echoing the hero.
@@ -15,7 +16,7 @@ export function BrandMark({
 }) {
   if (logoUrl) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={logoUrl} alt={name} className="h-10 w-auto" />;
+    return <img src={optimizedImageUrl(logoUrl, 400)} alt={name} className="h-10 w-auto" />;
   }
   const [first, ...rest] = name.split(" e ");
   return (
@@ -25,7 +26,7 @@ export function BrandMark({
         <path d="M20 4 A16 16 0 0 1 33.86 28" fill="none" stroke="var(--color-amber)" strokeWidth="4" strokeLinecap="round" />
         <path d="M20 20 L20 11 M20 20 L26 23" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
-      <span className="font-display text-[1.05rem] leading-none font-semibold tracking-tight">
+      <span className="font-display text-[1.05rem] leading-none font-semibold tracking-tight whitespace-nowrap">
         {first}
         {rest.length > 0 && <span className="font-normal opacity-70"> e {rest.join(" e ")}</span>}
       </span>

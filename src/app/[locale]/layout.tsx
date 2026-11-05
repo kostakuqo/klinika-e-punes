@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import localFont from "next/font/local";
+import { familjen, atkinson } from "../site-fonts";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
@@ -12,19 +12,6 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import "../globals.css";
 
-// Self-hosted (no request to Google). Latin subset covers ë, ç and Italian accents.
-const familjen = localFont({
-  src: "../../fonts/familjen-grotesk-latin-wght-normal.woff2",
-  variable: "--font-familjen",
-  weight: "400 700",
-  display: "swap",
-});
-const atkinson = localFont({
-  src: "../../fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2",
-  variable: "--font-atkinson",
-  weight: "200 800",
-  display: "swap",
-});
 
 export const metadata: Metadata = { metadataBase: new URL(siteUrl) };
 export const viewport: Viewport = { themeColor: "#0c1b33" };

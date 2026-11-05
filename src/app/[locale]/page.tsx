@@ -34,6 +34,7 @@ export default async function HomePage({ params }: Props) {
         phone={settings.phone}
         bookLabel={t("nav.book")}
         dialLabels={{ hours: t("dial.hours"), work: t("dial.work"), day: t("dial.day") }}
+        imageUrl={home.heroImageUrl}
       />
 
       {/* Services */}

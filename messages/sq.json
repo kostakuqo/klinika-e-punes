@@ -28,5 +28,29 @@
     "hours": "orë",
     "work": "në punë",
     "day": "nga 24 orët e ditës"
+  },
+  "form": {
+    "title": "Na shkruani",
+    "titleBook": "Kërkoni një takim",
+    "intro": "Plotësoni formularin dhe ju kthejmë përgjigje brenda një dite pune.",
+    "name": "Emri dhe mbiemri",
+    "company": "Kompania",
+    "employees": "Numri i punonjësve",
+    "phone": "Telefoni",
+    "email": "Email",
+    "message": "Mesazhi",
+    "messageBookHint": "Sektori, adresa e kompanisë, datat që ju përshtaten…",
+    "contactHint": "Shkruani të paktën telefonin ose email-in.",
+    "optional": "opsionale",
+    "send": "Dërgo mesazhin",
+    "sending": "Duke dërguar…",
+    "sentTitle": "Mesazhi u dërgua",
+    "sentText": "Faleminderit! Do t'ju kontaktojmë brenda një dite pune.",
+    "sendAnother": "Dërgo një mesazh tjetër",
+    "errMissing": "Plotësoni emrin dhe mesazhin.",
+    "errContact": "Shkruani telefonin ose email-in që t'ju kontaktojmë.",
+    "errEmail": "Adresa email nuk është e vlefshme.",
+    "errRate": "Keni dërguar shumë mesazhe. Provoni përsëri pas pak minutash ose na telefononi.",
+    "errServer": "Mesazhi nuk u dërgua. Provoni përsëri ose na telefononi."
   }
 }

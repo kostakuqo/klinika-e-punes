@@ -6,8 +6,8 @@ import { ContactDetails } from "@/components/site/contact-details";
 
 export const generateMetadata = innerPageMetadata("book", "/rezervo");
 
-// The booking form (saved to Firestore "bookings" + email notification)
-// is added together with the admin panel. Until then visitors see contact details.
+// Booking requests are sent with the same form as Kontakto (source "book")
+// and appear in Admin → Mesazhet.
 export default async function BookPage({ params }: LocaleParams) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -15,8 +15,8 @@ export default async function BookPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHero title={pages.book.title[locale]} intro={pages.book.intro[locale]} />
-      <ContactDetails settings={settings} locale={locale} />
+      <PageHero title={pages.book.title[locale]} intro={pages.book.intro[locale]} imageUrl={pages.book.heroImageUrl} />
+      <ContactDetails settings={settings} locale={locale} source="book" />
     </>
   );
 }

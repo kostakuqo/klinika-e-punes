@@ -50,6 +50,7 @@ export const defaultSiteContent: SiteContent = {
       "An occupational doctor prevents health damage from workplace risks, supports your staff and checks that your premises meet the legal requirements.",
       "Il medico del lavoro previene i danni alla salute dovuti ai rischi dell'ambiente e dei processi di lavoro, assiste il personale e verifica che gli ambienti aziendali siano a norma di legge.",
     ),
+    heroImageUrl: "",
     servicesTitle: L(
       "Detyrat kryesore të mjekut të punës",
       "What an occupational doctor does",
@@ -149,6 +150,7 @@ export const defaultSiteContent: SiteContent = {
         "Il medico assiste il personale e verifica costantemente che gli ambienti di lavoro dell'azienda rispettino i requisiti di legge.\n\nÈ responsabile del monitoraggio dello stato di salute del personale, della compilazione delle cartelle sanitarie e della consulenza continua su salute e sicurezza.\n\nIl medico del lavoro fa parte del comitato per la sicurezza che ogni impresa è obbligata per legge ad avere e risponde direttamente al direttore generale e all'ufficio risorse umane.",
       ),
       imageUrl: "",
+      heroImageUrl: "",
     },
     services: {
       seo: {
@@ -167,6 +169,7 @@ export const defaultSiteContent: SiteContent = {
       ),
       body: L("", "", ""),
       imageUrl: "",
+      heroImageUrl: "",
     },
     doctors: {
       seo: {
@@ -181,6 +184,7 @@ export const defaultSiteContent: SiteContent = {
       ),
       body: L("", "", ""),
       imageUrl: "",
+      heroImageUrl: "",
     },
     clients: {
       seo: {
@@ -199,6 +203,7 @@ export const defaultSiteContent: SiteContent = {
       ),
       body: L("", "", ""),
       imageUrl: "",
+      heroImageUrl: "",
     },
     contact: {
       seo: {
@@ -217,6 +222,7 @@ export const defaultSiteContent: SiteContent = {
       ),
       body: L("", "", ""),
       imageUrl: "",
+      heroImageUrl: "",
     },
     book: {
       seo: {
@@ -235,6 +241,7 @@ export const defaultSiteContent: SiteContent = {
       ),
       body: L("", "", ""),
       imageUrl: "",
+      heroImageUrl: "",
     },
   },
 

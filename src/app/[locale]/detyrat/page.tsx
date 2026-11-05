@@ -18,7 +18,7 @@ export default async function ServicesPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHero title={page.title[locale]} intro={page.intro[locale]} />
+      <PageHero title={page.title[locale]} intro={page.intro[locale]} imageUrl={page.heroImageUrl} />
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <ServicesPanel services={services} locale={locale} />
       </section>

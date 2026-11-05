@@ -26,6 +26,8 @@ export type HomePage = {
   seo: Seo;
   heroTitle: Localized;
   heroLead: Localized;
+  /** Background photo of the hero (Cloudinary URL); empty = plain navy */
+  heroImageUrl: string;
   servicesTitle: Localized;
   servicesIntro: Localized;
   processTitle: Localized;
@@ -45,7 +47,10 @@ export type InnerPage = {
   intro: Localized;
   /** Paragraphs separated by a blank line */
   body: Localized;
+  /** Image next to the body text (used on Rreth nesh) */
   imageUrl: string;
+  /** Background photo of the page's title band; empty = plain navy */
+  heroImageUrl: string;
 };
 
 export type InnerPageId = "about" | "services" | "doctors" | "clients" | "contact" | "book";

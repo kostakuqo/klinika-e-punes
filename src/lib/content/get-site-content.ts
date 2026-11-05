@@ -65,5 +65,6 @@ async function loadFromFirestore(): Promise<SiteContent> {
 
 export const getSiteContent = unstable_cache(loadFromFirestore, ["site-content"], {
   tags: [CONTENT_TAG],
-  revalidate: 3600,
+  // 5 s while developing so edits in the Firebase console show up quickly; 1 h in production
+  revalidate: process.env.NODE_ENV === "development" ? 5 : 3600,
 });

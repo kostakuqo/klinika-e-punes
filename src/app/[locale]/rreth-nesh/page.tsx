@@ -4,6 +4,7 @@ import { innerPageMetadata, paragraphs, type LocaleParams } from "@/lib/content/
 import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { IndustriesMarquee } from "@/components/home/industries-marquee";
+import { optimizedImageUrl } from "@/lib/cloudinary-image-url";
 
 export const generateMetadata = innerPageMetadata("about", "/rreth-nesh");
 
@@ -15,7 +16,7 @@ export default async function AboutPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHero title={page.title[locale]} intro={page.intro[locale]} />
+      <PageHero title={page.title[locale]} intro={page.intro[locale]} imageUrl={page.heroImageUrl} />
       <section className="mx-auto grid max-w-7xl gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:px-8">
         <Reveal className="space-y-6 text-lg leading-[1.75] text-ink/85">
           {paragraphs(page.body[locale]).map((p, i) => (
@@ -25,7 +26,7 @@ export default async function AboutPage({ params }: LocaleParams) {
         {page.imageUrl ? (
           <Reveal delay={0.1}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={page.imageUrl} alt="" className="aspect-[4/5] w-full rounded-[28px] object-cover" />
+            <img src={optimizedImageUrl(page.imageUrl, 1000)} alt="" className="aspect-[4/5] w-full rounded-[28px] object-cover" />
           </Reveal>
         ) : (
           <Reveal delay={0.1} className="self-start rounded-[28px] bg-navy p-10 text-white">

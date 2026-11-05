@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { WorkHoursDial } from "./work-hours-dial";
+import { HeroBackgroundPhoto } from "@/components/site/hero-background-photo";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -12,28 +13,33 @@ export function HomeHero({
   phone,
   bookLabel,
   dialLabels,
+  imageUrl,
 }: {
   title: string;
   lead: string;
   phone: string;
   bookLabel: string;
   dialLabels: { hours: string; work: string; day: string };
+  imageUrl: string;
 }) {
   const reduce = useReducedMotion();
   const words = title.split(" ");
 
   return (
     <section className="relative overflow-hidden bg-navy-deep text-white">
-      {/* quiet blueprint grid: the workplace is a plan we inspect */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07] [mask-image:radial-gradient(ellipse_at_70%_40%,black,transparent_70%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-        }}
-      />
+      <HeroBackgroundPhoto url={imageUrl} />
+      {/* quiet blueprint grid (only without a photo): the workplace is a plan we inspect */}
+      {!imageUrl && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07] [mask-image:radial-gradient(ellipse_at_70%_40%,black,transparent_70%)]"
+          style={{
+            backgroundImage:
+              "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+      )}
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pt-32 pb-20 sm:px-6 md:pt-40 lg:grid-cols-[1.25fr_1fr] lg:gap-16 lg:px-8 lg:pb-28">
         <div>

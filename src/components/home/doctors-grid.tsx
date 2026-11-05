@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/routing";
 import type { Doctor } from "@/lib/content/content-types";
 import { Reveal } from "@/components/site/reveal";
+import { optimizedImageUrl } from "@/lib/cloudinary-image-url";
 
 /** Doctor profiles from the admin panel. Hidden entirely until there is at least one. */
 export function DoctorsGrid({ doctors, locale, showBio = false }: { doctors: Doctor[]; locale: Locale; showBio?: boolean }) {
@@ -13,7 +14,7 @@ export function DoctorsGrid({ doctors, locale, showBio = false }: { doctors: Doc
               {d.photoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={d.photoUrl}
+                  src={optimizedImageUrl(d.photoUrl, 700)}
                   alt={d.name}
                   loading="lazy"
                   className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"

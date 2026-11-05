@@ -28,5 +28,29 @@
     "hours": "ore",
     "work": "al lavoro",
     "day": "su 24 ore al giorno"
+  },
+  "form": {
+    "title": "Scriveteci",
+    "titleBook": "Richiedi un appuntamento",
+    "intro": "Compilate il modulo e vi risponderemo entro un giorno lavorativo.",
+    "name": "Nome e cognome",
+    "company": "Azienda",
+    "employees": "Numero di dipendenti",
+    "phone": "Telefono",
+    "email": "Email",
+    "message": "Messaggio",
+    "messageBookHint": "Settore, indirizzo dell'azienda, date che vi vanno bene…",
+    "contactHint": "Indicate almeno un telefono o un'email.",
+    "optional": "facoltativo",
+    "send": "Invia messaggio",
+    "sending": "Invio in corso…",
+    "sentTitle": "Messaggio inviato",
+    "sentText": "Grazie! Vi contatteremo entro un giorno lavorativo.",
+    "sendAnother": "Invia un altro messaggio",
+    "errMissing": "Compilate nome e messaggio.",
+    "errContact": "Indicate un telefono o un'email per essere ricontattati.",
+    "errEmail": "L'indirizzo email non è valido.",
+    "errRate": "Troppi messaggi inviati. Riprovate tra qualche minuto o chiamateci.",
+    "errServer": "Il messaggio non è stato inviato. Riprovate o chiamateci."
   }
 }

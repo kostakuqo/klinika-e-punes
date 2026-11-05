@@ -28,5 +28,29 @@
     "hours": "hours",
     "work": "at work",
     "day": "out of every 24"
+  },
+  "form": {
+    "title": "Write to us",
+    "titleBook": "Request an appointment",
+    "intro": "Fill in the form and we will reply within one working day.",
+    "name": "Full name",
+    "company": "Company",
+    "employees": "Number of employees",
+    "phone": "Phone",
+    "email": "Email",
+    "message": "Message",
+    "messageBookHint": "Sector, company address, dates that suit you…",
+    "contactHint": "Give us at least a phone number or an email.",
+    "optional": "optional",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sentTitle": "Message sent",
+    "sentText": "Thank you! We will contact you within one working day.",
+    "sendAnother": "Send another message",
+    "errMissing": "Fill in your name and message.",
+    "errContact": "Add a phone number or email so we can reach you.",
+    "errEmail": "The email address is not valid.",
+    "errRate": "Too many messages sent. Try again in a few minutes or call us.",
+    "errServer": "The message was not sent. Try again or call us."
   }
 }

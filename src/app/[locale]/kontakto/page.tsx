@@ -13,8 +13,8 @@ export default async function ContactPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHero title={pages.contact.title[locale]} intro={pages.contact.intro[locale]} />
-      <ContactDetails settings={settings} locale={locale} />
+      <PageHero title={pages.contact.title[locale]} intro={pages.contact.intro[locale]} imageUrl={pages.contact.heroImageUrl} />
+      <ContactDetails settings={settings} locale={locale} source="contact" />
     </>
   );
 }
