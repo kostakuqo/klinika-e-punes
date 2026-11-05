@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "services": "Services",
+    "doctors": "Doctors",
+    "clients": "Our clients",
+    "contact": "Contact",
+    "book": "Book an appointment",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "skip": "Skip to content"
+  },
+  "common": {
+    "call": "Call",
+    "email": "Send an email",
+    "readMore": "Read more",
+    "allServices": "See all services",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Opening hours",
+    "followUs": "Follow us",
+    "rights": "All rights reserved.",
+    "doctorSoon": "Profile coming soon"
+  },
+  "dial": {
+    "hours": "hours",
+    "work": "at work",
+    "day": "out of every 24"
+  }
+}

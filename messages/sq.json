@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Kreu",
+    "about": "Rreth nesh",
+    "services": "Detyrat",
+    "doctors": "Mjekët",
+    "clients": "Klientët tanë",
+    "contact": "Kontakto",
+    "book": "Rezervo një takim",
+    "menu": "Menuja",
+    "close": "Mbyll",
+    "language": "Gjuha",
+    "skip": "Kalo te përmbajtja"
+  },
+  "common": {
+    "call": "Telefono",
+    "email": "Shkruaj email",
+    "readMore": "Lexo më shumë",
+    "allServices": "Shiko të gjitha detyrat",
+    "phone": "Telefoni",
+    "address": "Adresa",
+    "hours": "Orari",
+    "followUs": "Na ndiqni",
+    "rights": "Të gjitha të drejtat e rezervuara.",
+    "doctorSoon": "Profili po përgatitet"
+  },
+  "dial": {
+    "hours": "orë",
+    "work": "në punë",
+    "day": "nga 24 orët e ditës"
+  }
+}

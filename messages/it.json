@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "services": "Servizi",
+    "doctors": "Medici",
+    "clients": "I nostri clienti",
+    "contact": "Contatti",
+    "book": "Prenota un appuntamento",
+    "menu": "Menu",
+    "close": "Chiudi",
+    "language": "Lingua",
+    "skip": "Vai al contenuto"
+  },
+  "common": {
+    "call": "Chiama",
+    "email": "Scrivi un'email",
+    "readMore": "Leggi di più",
+    "allServices": "Vedi tutti i servizi",
+    "phone": "Telefono",
+    "address": "Indirizzo",
+    "hours": "Orari",
+    "followUs": "Seguici",
+    "rights": "Tutti i diritti riservati.",
+    "doctorSoon": "Profilo in preparazione"
+  },
+  "dial": {
+    "hours": "ore",
+    "work": "al lavoro",
+    "day": "su 24 ore al giorno"
+  }
+}

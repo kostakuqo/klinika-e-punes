@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/*
+ * Klinika e Punës — design tokens
+ * Workwear navy + safety amber on clinical white. Amber is the hi-vis colour
+ * of the workplace: used for fills and the work-hours dial, never for text
+ * on white (contrast).
+ */
+@theme {
+  --color-navy: #14294a;
+  --color-navy-deep: #0c1b33;
+  --color-ink: #0e1a2e;
+  --color-steel: #56677d;
+  --color-frost: #e3eaf3;
+  --color-clinic: #f6f8fb;
+  --color-amber: #f5b700;
+  --color-amber-soft: #fff3c4;
+
+  --font-display: var(--font-familjen), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-clinic);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-amber); color: var(--color-navy-deep); }
+  :focus-visible {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+
+/* Industries marquee */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 48s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}

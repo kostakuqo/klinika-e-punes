@@ -1,0 +1,30 @@
+rules_version = '2';
+
+// Public content is read on the server with the Admin SDK (bypasses rules).
+// The browser only talks to Firestore from the admin panel, so:
+//   - signed-in admins (listed in /admins/{uid}) can read and write content
+//   - anyone can create a booking request, nobody can read them except admins
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /bookings/{id} {
+      allow create: if request.resource.data.keys().hasOnly(
+        ['company', 'name', 'phone', 'email', 'employees', 'sector', 'message', 'locale', 'createdAt', 'status']
+      );
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // added by hand in the Firebase console
+    }
+
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
