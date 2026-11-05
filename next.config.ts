@@ -9,6 +9,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
  */
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  // allow opening the dev server from other devices on the local network (e.g. http://192.168.1.20:3000)
+  allowedDevOrigins: ["192.168.*.*", "10.*.*.*"],
   images: {
     remotePatterns: [{ protocol: "https", hostname: "res.cloudinary.com" }],
   },
