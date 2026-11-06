@@ -16,7 +16,7 @@ async function adminPost<T>(path: string): Promise<T> {
     /* not JSON: a crash page from the server */
   }
   if (!res.ok) {
-    throw new Error(body.error ?? `Gabim ${res.status} në server. Shikoni terminalin ku punon "npm run dev" për detajet.`);
+    throw new Error(body.error ?? `Gabim ${res.status} në server. Detajet janë te Vercel → Logs (ose në terminalin e "npm run dev" kur punoni lokalisht).`);
   }
   return body as T;
 }
