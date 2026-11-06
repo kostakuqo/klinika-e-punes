@@ -180,6 +180,51 @@ export function SelectInput<T extends string>({
   );
 }
 
+/** On/off switch with a label and a line explaining the current state. */
+export function ToggleInput({
+  label,
+  checked,
+  onChange,
+  onText,
+  offText,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  onText: string;
+  offText: string;
+}) {
+  const id = useId();
+  return (
+    <div className="flex items-start gap-4">
+      <button
+        id={id}
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        onClick={() => onChange(!checked)}
+        className={clsx(
+          "relative mt-0.5 h-8 w-14 shrink-0 rounded-full border-2 transition-colors",
+          checked ? "border-navy bg-navy" : "border-[#c6d0dd] bg-[#e3e9f1]",
+        )}
+      >
+        <span
+          className={clsx(
+            "absolute top-0.5 size-6 rounded-full bg-white shadow transition-[left] duration-200",
+            checked ? "left-[1.6rem] bg-amber" : "left-0.5",
+          )}
+        />
+      </button>
+      <div>
+        <label htmlFor={id} className="text-[0.95rem] font-semibold text-navy">
+          {label}: {checked ? "Aktiv" : "Joaktiv"}
+        </label>
+        <p className="mt-0.5 text-sm text-steel">{checked ? onText : offText}</p>
+      </div>
+    </div>
+  );
+}
+
 /** Google title + description for one page, in three languages. */
 export function SeoFields({
   value,
@@ -207,6 +252,7 @@ export const imageSizes = {
   hero: { width: 1920, height: 1080, note: "horizontale (16:9), JPG ose WebP" },
   portrait: { width: 800, height: 1000, note: "vertikale (4:5), JPG ose WebP" },
   logo: { width: 600, height: 200, note: "PNG ose SVG me sfond transparent" },
+  promo: { width: 1080, height: 1350, note: "vertikale (4:5), JPG ose PNG" },
 } as const;
 
 type ImageSize = { width: number; height: number; note: string };

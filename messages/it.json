@@ -52,5 +52,12 @@
     "errEmail": "L'indirizzo email non è valido.",
     "errRate": "Troppi messaggi inviati. Riprovate tra qualche minuto o chiamateci.",
     "errServer": "Il messaggio non è stato inviato. Riprovate o chiamateci."
+  },
+  "promo": {
+    "label": "Offerte di Klinika e Punës",
+    "close": "Chiudi",
+    "previous": "Offerta precedente",
+    "next": "Offerta successiva",
+    "slideOf": "Offerta {current} di {total}"
   }
 }

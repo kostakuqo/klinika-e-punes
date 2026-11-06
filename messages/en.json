@@ -52,5 +52,12 @@
     "errEmail": "The email address is not valid.",
     "errRate": "Too many messages sent. Try again in a few minutes or call us.",
     "errServer": "The message was not sent. Try again or call us."
+  },
+  "promo": {
+    "label": "Klinika e Punës offers",
+    "close": "Close",
+    "previous": "Previous offer",
+    "next": "Next offer",
+    "slideOf": "Offer {current} of {total}"
   }
 }

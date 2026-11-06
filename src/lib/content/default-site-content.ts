@@ -27,6 +27,9 @@ export const defaultSiteContent: SiteContent = {
     logoUrl: "",
   },
 
+  // Off until the client uploads promo images in Admin → Promocionet
+  promotions: { enabled: false, delaySeconds: 2, slides: [] },
+
   home: {
     seo: {
       title: L(

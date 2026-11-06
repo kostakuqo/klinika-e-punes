@@ -76,8 +76,28 @@ export type Doctor = {
 
 export type Industry = { id: string; order: number; name: Localized };
 
+/** One image of the home-page promo popup. */
+export type PromoSlide = {
+  id: string;
+  /** Image per language; "sq" is required, en/it fall back to it when empty */
+  image: Localized;
+  /** Optional link when the image is clicked: /rezervo/, tel:+355…, https://… */
+  link: string;
+  /** Short description of the image for screen readers */
+  alt: Localized;
+};
+
+/** Promo popup shown on the home page (Firestore settings/promotions). */
+export type Promotions = {
+  enabled: boolean;
+  /** Seconds after the page opens before the popup appears */
+  delaySeconds: number;
+  slides: PromoSlide[];
+};
+
 export type SiteContent = {
   settings: SiteSettings;
+  promotions: Promotions;
   home: HomePage;
   pages: Record<InnerPageId, InnerPage>;
   services: Service[];

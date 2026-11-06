@@ -52,5 +52,12 @@
     "errEmail": "Adresa email nuk është e vlefshme.",
     "errRate": "Keni dërguar shumë mesazhe. Provoni përsëri pas pak minutash ose na telefononi.",
     "errServer": "Mesazhi nuk u dërgua. Provoni përsëri ose na telefononi."
+  },
+  "promo": {
+    "label": "Ofertat e Klinikës së Punës",
+    "close": "Mbyll",
+    "previous": "Oferta e mëparshme",
+    "next": "Oferta tjetër",
+    "slideOf": "Oferta {current} nga {total}"
   }
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="sq" className={`${familjen.variable} ${atkinson.variable}`}>
+    <html lang="sq" className={`${familjen.variable} ${atkinson.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh bg-clinic">
         <AdminAuthProvider>
           <AdminGate>

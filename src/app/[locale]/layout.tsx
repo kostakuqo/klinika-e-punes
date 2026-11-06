@@ -47,7 +47,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className={`${familjen.variable} ${atkinson.variable}`}>
+    <html lang={locale} className={`${familjen.variable} ${atkinson.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <NextIntlClientProvider>

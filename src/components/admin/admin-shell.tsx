@@ -10,6 +10,7 @@ import { useUnreadMessages } from "./use-unread-messages";
 
 export const adminSections = [
   { href: "/admin/mesazhet/", title: "Mesazhet", text: "Mesazhet dhe kërkesat për rezervim nga formulari i faqes." },
+  { href: "/admin/promocionet/", title: "Promocionet", text: "Dritarja me oferta që hapet në faqen kryesore." },
   { href: "/admin/faqet/", title: "Faqet", text: "Tekstet e çdo faqeje në shqip, anglisht dhe italisht, dhe SEO." },
   { href: "/admin/detyrat/", title: "Detyrat", text: "Shërbimet që shfaqen në faqen kryesore dhe te Detyrat." },
   { href: "/admin/mjeket/", title: "Mjekët", text: "Profilet e mjekëve me foto." },

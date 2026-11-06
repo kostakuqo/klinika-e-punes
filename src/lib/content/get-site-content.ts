@@ -7,6 +7,7 @@ import type { InnerPageId, SiteContent } from "./content-types";
 /**
  * Firestore layout
  *   settings/general              SiteSettings
+ *   settings/promotions           Promotions (home-page popup)
  *   pages/home                    HomePage
  *   pages/{about|services|…}      InnerPage
  *   services/{id}                 Service    (sorted by "order")
@@ -32,9 +33,10 @@ async function loadFromFirestore(): Promise<SiteContent> {
   if (!db) return defaultSiteContent;
 
   try {
-    const [settingsSnap, pagesSnap, servicesSnap, doctorsSnap, industriesSnap] =
+    const [settingsSnap, promotionsSnap, pagesSnap, servicesSnap, doctorsSnap, industriesSnap] =
       await Promise.all([
         db.doc("settings/general").get(),
+        db.doc("settings/promotions").get(),
         db.collection("pages").get(),
         db.collection("services").orderBy("order").get(),
         db.collection("doctors").orderBy("order").get(),
@@ -51,6 +53,7 @@ async function loadFromFirestore(): Promise<SiteContent> {
 
     return {
       settings: merge(defaultSiteContent.settings, settingsSnap.data()),
+      promotions: merge(defaultSiteContent.promotions, promotionsSnap.data()),
       home: merge(defaultSiteContent.home, pagesById.get("home")),
       pages,
       services: list(servicesSnap, defaultSiteContent.services),

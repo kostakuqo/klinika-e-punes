@@ -11,6 +11,7 @@ import { ProcessTimeline } from "@/components/home/process-timeline";
 import { IndustriesMarquee } from "@/components/home/industries-marquee";
 import { DoctorsGrid } from "@/components/home/doctors-grid";
 import { BookingCtaBand } from "@/components/home/booking-cta-band";
+import { PromoPopup } from "@/components/home/promo-popup";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -23,8 +24,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const { home, services, industries, doctors, settings } = await getSiteContent();
+  const { home, services, industries, doctors, settings, promotions } = await getSiteContent();
   const t = await getTranslations();
+
+  // Promo popup images for this language (en/it fall back to the Albanian image)
+  const promoSlides = promotions.enabled
+    ? promotions.slides
+        .map((s) => ({ id: s.id, src: s.image?.[locale] || s.image?.sq || "", alt: s.alt?.[locale] || s.alt?.sq || "", link: (s.link ?? "").trim() }))
+        .filter((s) => s.src)
+    : [];
 
   return (
     <>
@@ -90,6 +98,8 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <BookingCtaBand title={home.ctaTitle[locale]} text={home.ctaText[locale]} bookLabel={t("nav.book")} phone={settings.phone} />
+
+      {promoSlides.length > 0 && <PromoPopup slides={promoSlides} delaySeconds={promotions.delaySeconds} />}
     </>
   );
 }
