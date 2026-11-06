@@ -18,7 +18,8 @@ export async function verifyAdminRequest(request: Request): Promise<string | nul
     const { uid } = await getAuth(app).verifyIdToken(token);
     const admin = await db.doc(`admins/${uid}`).get();
     return admin.exists ? uid : null;
-  } catch {
+  } catch (error) {
+    console.warn("[admin] token check failed:", error instanceof Error ? error.message : error);
     return null;
   }
 }

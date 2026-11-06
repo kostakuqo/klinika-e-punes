@@ -10,6 +10,16 @@ const FOLDER = "klinika-e-punes";
  * https://cloudinary.com/documentation/authentication_signatures
  */
 export async function POST(request: Request) {
+  try {
+    return await sign(request);
+  } catch (error) {
+    console.error("[cloudinary-signature]", error);
+    const reason = error instanceof Error ? error.message : String(error);
+    return Response.json({ error: `Gabim në server: ${reason}` }, { status: 500 });
+  }
+}
+
+async function sign(request: Request) {
   if (!(await verifyAdminRequest(request))) return unauthorized();
 
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;

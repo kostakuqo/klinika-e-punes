@@ -8,8 +8,16 @@ async function adminPost<T>(path: string): Promise<T> {
   if (!user) throw new Error("Sesioni ka mbaruar. Hyni përsëri.");
   const token = await user.getIdToken();
   const res = await fetch(path, { method: "POST", headers: { Authorization: `Bearer ${token}` } });
-  const body = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(body.error ?? `Gabim ${res.status}`);
+  const text = await res.text();
+  let body: { error?: string } = {};
+  try {
+    body = JSON.parse(text);
+  } catch {
+    /* not JSON: a crash page from the server */
+  }
+  if (!res.ok) {
+    throw new Error(body.error ?? `Gabim ${res.status} në server. Shikoni terminalin ku punon "npm run dev" për detajet.`);
+  }
   return body as T;
 }
 
